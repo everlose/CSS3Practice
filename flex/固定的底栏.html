@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flex</title>
+	<style>
+	body {
+		display: box;			  /* OLD 2009版 - Android 4.4- */ 
+		display: -webkit-box;	  /* OLD - iOS 6-, Safari 3.1-6 */
+		display: -webkit-flex;	 /* NEW - Chrome */
+		display: flex;
+
+		-webkit-box-orient: vertical;
+		-webkit-flex-direction: row;
+		flex-direction: column;
+	
+		padding: 0;
+		margin: 0;
+		min-height: 100vh;
+	}
+	header {
+		background-color: #eee;
+		padding: 30px 0;
+		text-align: center;
+	}
+	section {
+		flex: 1;
+		/*height: 400px;*/
+
+		text-align: center;
+		line-height: 100px;
+	}
+	footer {
+		background: #666;
+		color: #fff;
+		padding: 50px 0;
+		text-align: center;
+	}
+	</style>
+</head>
+<body>
+	<header>header</header>
+	<section>亮点在于body的最小高度时100vh，vh时相对于视口的高度。视口被均分为100单位的vh，兼容到ie9，chrome26+，ff19+，android4.4+</section>
+	<footer>footer</footer>
+</body>
+</html>

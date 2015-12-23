@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.box {
+		width: 200px;
+		background-color: black;
+
+		display: box;			  /* OLD 2009版 - Android 4.4- */ 
+		display: -webkit-box;	  /* OLD - iOS 6-, Safari 3.1-6 */
+		display: -webkit-flex;	 /* NEW - Chrome */
+		display: flex;
+
+		-webkit-flex-flow: row wrap;
+		flex-flow: row wrap;
+
+		-webkit-align-content: flex-start;
+		align-content: flex-start;
+	}
+
+	.item {
+		box-sizing: border-box;
+		background-color: white;
+
+		-webkit-box-flex: 0 0 25%;
+		-webkit-flex: 0 0 25%;
+		flex: 0 0 25%;
+
+		height: 50px;
+		border: 1px solid red;
+	}
+	</style>
+</head>
+<body>
+	flex-wrap有兼容性问题，慎用。
+	<section class="box">
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+	</section>
+
+</body>
+</html>
