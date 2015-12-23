@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flex</title>
+	<style>
+	.box {
+		display: box;			  /* OLD 2009版 - Android 4.4- */ 
+		display: -webkit-box;	  /* OLD - iOS 6-, Safari 3.1-6 */
+		display: -webkit-flex;	 /* NEW - Chrome */
+		display: flex;
+
+		min-height: 800px;
+
+		-webkit-box-orient: horizontal;
+		-webkit-flex-direction: row;
+		flex-direction: column;
+
+		text-align: center;
+	}
+	header,
+	footer {
+		-webkit-box-flex: 0 100px;
+		-webkit-flex: 0 100px;
+		flex: 0 100px;
+
+		background: #666;
+		color: #fff;
+	}
+	.mnc {
+		display: box;			  /* OLD 2009版 - Android 4.4- */ 
+		display: -webkit-box;	  /* OLD - iOS 6-, Safari 3.1-6 */
+		display: -webkit-flex;	 /* NEW - Chrome */
+		display: flex;
+
+		-webkit-box-flex: 1;
+		-webkit-flex: 1;
+		flex: 1;
+	}
+
+	.main {
+		-webkit-box-flex: 1;
+		-webkit-flex: 1;
+		flex: 1;
+
+		background-color: #eee;
+	}
+
+	.ads {
+		/* 两个边栏的宽度设为12em */
+		-webkit-box-flex: 0 0 12em;
+		-webkit-flex: 0 0 12em;
+		flex: 0 0 12em;
+
+		background-color: orange;
+	}
+
+	.nav {
+		/* 导航放到最左边 */
+		-webkit-order:-1;
+		order:-1;
+
+		-webkit-box-flex: 0 0 10em;
+		-webkit-flex: 0 0 10em;
+		flex: 0 0 10em;
+
+		background: blue;
+	}
+	</style>
+</head>
+<body>
+	<section class="box">
+		<header>header</header>
+		<div class="mnc">
+			<nav class="nav">nav</nav>
+			<div class="main">main</div>
+			<aside class="ads">ads</aside>
+		</div>
+		<footer>footer</footer>
+	</section>
+</body>
+</html>

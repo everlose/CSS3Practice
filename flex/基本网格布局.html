@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.flex {
+		display: box;			  /* OLD 2009版 - Android 4.4- */ 
+		display: -webkit-box;	  /* OLD - iOS 6-, Safari 3.1-6 */
+		display: -webkit-flex;	 /* NEW - Chrome */
+		display: flex;
+		
+		background: green;
+
+	}
+	.item {
+		text-align: center;
+		background: #fff;
+		padding: 10px;
+		margin: 10px;
+		border-radius: 5px;
+
+		-webkit-box-flex: 1;
+		-webkit-flex: 1;
+		flex: 1;
+	}
+
+	</style>
+</head>
+<body>
+	<section class="flex">
+		<div class="item">1/2</div>
+		<div class="item">1/2</div>
+	</section>
+	<section class="flex">
+		<div class="item">1/3</div>
+		<div class="item">1/3</div>
+		<div class="item">1/3</div>
+	</section>
+	<section class="flex">
+		<div class="item">1/4</div>
+		<div class="item">1/4</div>
+		<div class="item">1/4</div>
+		<div class="item">1/4</div>
+	</section>
+</body>
+</html>

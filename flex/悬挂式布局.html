@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body {
+		font: 12px/1.5 'Helvetica Neue',Helvetica,Arial,Sans-serif;
+	}
+	.media {
+		display: box;			  /* OLD 2009版 - Android 4.4- */ 
+		display: -webkit-box;	  /* OLD - iOS 6-, Safari 3.1-6 */
+		display: -webkit-flex;	 /* NEW - Chrome */
+		display: flex;
+		
+		-webkit-box-align: flex-start;
+		-webkit-align-items: flex-start;
+		align-items: flex-start;
+
+		background: #eee;
+		width: 500px;
+
+	}
+	.media-figure {
+		width: 50px;
+		height: 50px;
+		margin: 1em 1em 0 1em;
+	}
+	.media-body {
+
+		-webkit-box-flex: 1;
+		-webkit-flex: 1;
+		flex: 1;
+	}
+
+	</style>
+</head>
+<body>
+	<section class="media">
+		<img class="media-figure" src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071325.png" alt="">
+		<div class="media-body">
+			<h3>Standard Media Object</h3>
+			<p>Method of positioning elements in horizontal or vertical stacks. Support includes the support for the all properties prefixed with flex as well as display: flex, display: inline-flex, align-content, align-items, align-self, justify-content and order.</p>
+		</div>
+	</section>
+
+	<section class="media" style="margin-top: 20px;">
+		<img class="media-figure" src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071325.png" alt="">
+		<div class="media-body">
+			<h3>Standard Media Object</h3>
+			<p>Method of positioning elements in horizontal or vertical stacks. Support includes the support for the all properties prefixed with flex as well as display: flex, display: inline-flex, align-content, align-items, align-self, justify-content and order,Method of positioning elements in horizontal or vertical stacks. Support includes the support for the all properties prefixed with flex as well as display: flex, display: inline-flex, align-content, align-items, align-self, justify-content and order.</p>
+		</div>
+	</section>
+</body>
+</html>
