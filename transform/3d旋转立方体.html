@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转立方体</title>
+    <style>
+        body {
+            background-color: #eee;
+        }
+
+        .wrap {
+            margin-top: 150px;
+            perspective: 1000px;
+            perspective-origin: 50% 50%;
+            background-image: linear-gradient(135deg,#ccc 25%,#6699cc 25%,#6699cc 50%, #ccc 50%, #ccc 75%,#6699cc 75%,#6699cc 100%);
+            background-size: 80px 80px;
+            border-top: solid 3px #6699cc;
+            border-bottom: solid 3px #6699cc;
+            /* Background stripes animation */
+            animation: bganim 3s linear 2s infinite;
+        }
+
+        @keyframes bganim {
+            from {
+                background-position: 0px;
+            }
+
+            to {
+                background-position: 80px;
+            }
+        }
+
+        .cube {
+            margin: auto;
+            position: relative;
+            height: 200px;
+            width: 200px;
+            transform-style: preserve-3d;
+        }
+
+            .cube div {
+                position: absolute;
+                padding: 10px;
+                box-sizing: border-box;
+                height: 100%;
+                width: 100%;
+                opacity: 0.9;
+                background-color: #000;
+                border: solid 1px #eee;
+                color: #fff;
+                font: 10px arial;
+                transition: transform 0.2s ease-in;
+            }
+
+        .front {
+            background: url(img/1.jpg);
+            transform: translateZ(100px);
+        }
+
+        .back {
+            background: url(img/2.jpg);
+            transform: translateZ(-100px) rotateY(180deg);
+        }
+
+        .right {
+            background: url(img/3.jpg);
+            transform: rotateY(-270deg) translateX(100px);
+            transform-origin: top right;
+        }
+
+        .left {
+            background: url(img/4.jpg);
+            transform: rotateY(270deg) translateX(-100px);
+            transform-origin: center left;
+        }
+
+        .top {
+            background: url(img/5.jpg);
+            transform: rotateX(-270deg) translateY(-100px);
+            transform-origin: top center;
+        }
+
+        .bottom {
+            background: url(img/6.jpg);
+            transform: rotateX(270deg) translateY(100px);
+            transform-origin: bottom center;
+        }
+        /* inner cube */
+        i{
+          position:absolute;
+          top:50px;
+          left:50px;
+          width:100px;
+          height:100px;
+          display:block;
+          background:url(img/cube.png);
+          transition: all 1s linear;
+        }
+        i.i_front{
+          transform: translateZ(50px);
+        }
+        i.i_back{
+          transform: translateZ(-50px) rotateY(180deg);
+        }
+        i.i_bottom{
+          transform:rotateX(-90deg) translateY(50px);
+          transform-origin: left bottom;
+        }
+        i.i_left{
+          transform:rotateY(270deg) translateX(-50px);
+          transform-origin: center left;
+        }
+        i.i_right{
+          transform:rotateY(-270deg) translateX(50px);
+          transform-origin: top right;
+        }
+        i.i_top{
+          transform:rotateX(-270deg) translateY(-50px);
+          transform-origin: left top;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        .cube {
+            animation: rotate 20s infinite linear;
+        }
+
+        .wrap:hover .front {
+            transform: translateZ(200px);
+        }
+
+        .wrap:hover .back {
+            transform: translateZ(-200px) rotateY(180deg);
+        }
+
+        .wrap:hover .right {
+            transform: rotateY(-270deg) translateZ(100px) translateX(100px);
+        }
+
+        .wrap:hover .left {
+            transform: rotateY(270deg) translateZ(100px) translateX(-100px);
+        }
+
+        .wrap:hover .top {
+            transform: rotateX(-270deg) translateZ(100px) translateY(-100px);
+        }
+
+        .wrap:hover .bottom {
+            transform: rotateX(270deg) translateZ(100px) translateY(100px);
+        }
+    </style>
+</head>
+<body>
+    <div align="center" style="direction: ltr;">
+        <div style="text-align:center;padding:10px;">
+            <div>
+                This simple 3D cube animation is a good way to get started with concepts like css3 3d transforms, translations, rotations..<br />
+            </div>
+        </div>
+    
+        <div class="wrap">
+            <div class="cube">
+                <div class="front">
+                    <h2>Front side</h2>
+                </div>
+                <div class="back">
+                    <h2>Back side</h2>
+                </div>
+                <div class="top">
+                    <h2>Top side</h2>
+                </div>
+                <div class="bottom">
+                    <h2>Bottom side</h2>
+                </div>
+                <div class="left">
+                    <h2>Left side</h2>
+                </div>
+                <div class="right">
+                    <h2>Right side</h2>
+                </div>
+                <i class="i_front"></i>
+                <i class="i_back"></i>
+                <i class="i_top"></i>
+                <i class="i_bottom"></i>
+                <i class="i_left"></i>
+                <i class="i_right"></i>
+            </div>
+        </div>
+
+        <div style="text-align:center;padding-top:150px;">
+            用鼠标滑过立方体查看效果。插件中精美的插图来自于<a href="http://huaban.com/boards/16814635/" target="_blank">花瓣</a>。
+        </div>
+    </div>
+</body>
+</html>

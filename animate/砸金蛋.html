@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>砸金蛋</title>
+    <script>
+        ;(function(win) {
+        var h;
+        var dpr = win.navigator.appVersion.match(/iphone/gi)?win.devicePixelRatio:1;
+        var scale = 1 / dpr;
+        var docEl = document.documentElement;
+        var metaEl = document.createElement('meta');
+
+        function setUnitA(){
+            win.rem = docEl.getBoundingClientRect().width / 16;
+            docEl.style.fontSize = win.rem + 'px';
+        }
+
+        win.dpr = dpr;
+        win.addEventListener('resize', function() {
+            clearTimeout(h);
+            h = setTimeout(setUnitA, 300);
+        }, false);
+        win.addEventListener('pageshow', function(e) {
+            if (e.persisted) {
+                clearTimeout(h);
+                h = setTimeout(setUnitA, 300);
+            }
+        }, false);
+
+        docEl.setAttribute('data-dpr', dpr);
+        metaEl.setAttribute('name', 'viewport');
+        metaEl.setAttribute('content', 'initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+        if (docEl.firstElementChild) {
+            docEl.firstElementChild.appendChild(metaEl);
+        } else {
+            var wrap = document.createElement('div');
+            wrap.appendChild(metaEl);
+            document.write(wrap.innerHTML);
+        }
+
+        setUnitA();
+    })(window);
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+        }
+        @-webkit-keyframes shake {
+            from, to {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        
+            10%, 30%, 50%, 70%, 90% {
+                -webkit-transform: translate3d(-1%, 0, 0);
+                transform: translate3d(-1%, 0, 0);
+            }
+        
+            20%, 40%, 60%, 80% {
+                -webkit-transform: translate3d(1%, 0, 0);
+                transform: translate3d(1%, 0, 0);
+            }
+        }
+        
+        @keyframes shake {
+            from, to {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        
+            10%, 30%, 50%, 70%, 90% {
+                -webkit-transform: translate3d(-1%, 0, 0);
+                transform: translate3d(-1%, 0, 0);
+            }
+        
+            20%, 40%, 60%, 80% {
+                -webkit-transform: translate3d(1%, 0, 0);
+                transform: translate3d(1%, 0, 0);
+            }
+        }
+        
+        @-webkit-keyframes tada {
+            from {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+        
+            10%, 20% {
+                -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+                transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+            }
+        
+            30%, 50%, 70%, 90% {
+                -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+                transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+            }
+        
+            40%, 60%, 80% {
+                -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+                transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+            }
+        
+            to {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+        }
+        
+        @keyframes tada {
+            from {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+        
+            10%, 20% {
+                -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+                transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+            }
+        
+            30%, 50%, 70%, 90% {
+                -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+                transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+            }
+        
+            40%, 60%, 80% {
+                -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+                transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+            }
+        
+            to {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+        }
+        @-webkit-keyframes pulse {
+            from {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+        
+            50% {
+                -webkit-transform: scale3d(2, 2, 2);
+                transform: scale3d(2, 2, 2);
+            }
+        
+            to {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+        }
+        
+        @keyframes pulse {
+            from {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+        
+            50% {
+                -webkit-transform: scale3d(2, 2, 2);
+                transform: scale3d(2, 2, 2);
+            }
+        
+            to {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+        }
+        
+        @-webkit-keyframes fall_crash {
+            from {
+                -webkit-transform-origin: center;
+                transform-origin: center;
+                -webkit-transform: rotate3d(0, 0, 1, -700deg);
+                transform: rotate3d(0, 0, 1, -700deg);
+                opacity: 0;
+                top: -4.26rem;
+            }
+                
+            50% {
+                -webkit-transform-origin: center;
+                transform-origin: center;
+                -webkit-transform: none;
+                transform: none;
+                opacity: 1;
+                top: 1.06rem;
+            }
+            
+            70% {
+                -webkit-transform-origin: center;
+                transform-origin: center;
+                -webkit-transform: rotate3d(0, 0, 1, 120deg);
+                transform: rotate3d(0, 0, 1, 120deg);
+                opacity: 1;
+                top: 1.06rem;
+            }
+            
+            to {
+                -webkit-transform-origin: center;
+                transform-origin: center;
+                -webkit-transform: none;
+                transform: none;
+                opacity: 1;
+                top: 1.06rem;
+            }
+        }
+        @keyframes fall_crash {
+            from {
+                -webkit-transform-origin: center;
+                transform-origin: center;
+                -webkit-transform: rotate(-700deg);
+                transform: rotate(-700deg);
+                opacity: 0;
+                top: -4.26rem;
+            }
+                
+            50% {
+                -webkit-transform-origin: center;
+                transform-origin: center;
+                -webkit-transform: none;
+                transform: none;
+                opacity: 1;
+                top: 1.06rem;
+            }
+            
+            70% {
+                -webkit-transform-origin: center;
+                transform-origin: center;
+                -webkit-transform: rotate(120deg);
+                transform: rotate(120deg);
+                opacity: 1;
+                top: 1.06rem;
+            }
+            
+            to {
+                -webkit-transform-origin: center;
+                transform-origin: center;
+                -webkit-transform: none;
+                transform: none;
+                opacity: 1;
+                top: 1.06rem;
+            }
+        }
+        .act38 {
+            position: relative;
+            width: 100%;
+        }
+        .act38 .bd {
+            position: relative;
+        }
+        .act38 .bd .bd-bg {
+            display: block;
+            width: 100%;
+            height: 12.288rem;
+        }
+        .act38 .bd .group {
+            width: 5.33333333rem;
+            height: 6.656rem;
+            position: absolute;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform-style: preserve-3d;
+            -webkit-transform: translate3d(0, 0, 0);
+        }
+        .act38 .bd .group .tray {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 5.33333333rem;
+            height: 1.408rem;
+            background: url('http://b0.hucdn.com/party/default/upload_725c63654e62a479769de361fbb7d899_250x66.png') top center no-repeat;
+            background-size: cover;
+        }
+        .act38 .bd .group .egg {
+            position: absolute;
+            top: 0;
+            left: 0.59733333rem;
+            width: 4.13866667rem;
+            height: 5.54666667rem;
+            background: url('http://b0.hucdn.com/party/default/upload_c536222fa09f0b32097656f3f2aee51d_194x260.png') top center no-repeat;
+            background-size: cover;
+            -webkit-animation: shake 1s linear 0s infinite both;
+            animation: shake 1s linear 0s infinite both;
+        }
+        .act38 .bd .group .text {
+            position: absolute;
+            width: 3.69066667rem;
+            height: 2.56rem;
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: cover;
+            -webkit-animation: tada 2s linear 0s infinite both;
+            animation: tada 2s linear 0s infinite both;
+        }
+        .act38 .bd .group .emoji {
+            position: absolute;
+            width: 0.49066667rem;
+            height: 0.576rem;
+            background: url('http://b0.hucdn.com/party/default/upload_d4455bd327f5560a9da098660ad9a536_23x27.png') top center no-repeat;
+            background-size: cover;
+            -webkit-animation: pulse 1s linear 0s infinite both;
+            animation: pulse 1s linear 0s infinite both;
+        }
+        .act38 .bd .group .hammer {
+            position: absolute;
+            top: -4.26666667rem;
+            left: 2.77333333rem;
+            width: 1.728rem;
+            height: 1.32266667rem;
+            background: url('http://b0.hucdn.com/party/default/upload_649ea9837263d011a3ac24255e523163_81x62.png') top center no-repeat;
+            background-size: cover;
+            visibility: hidden;
+        }
+        .act38 .bd .group .hammer.hammer_crash {
+            visibility: visible;
+            -webkit-animation: fall_crash 2s ease-in-out 0s 1 none;
+            animation: fall_crash 2s ease-in-out 0s 1 none;
+        }
+        .act38 .bd .group.group1 .egg {
+            -webkit-animation-fill-mode: reverse;
+            animation-fill-mode: reverse;
+        }
+        .act38 .bd .group.group1 .text {
+            top: -0.74666667rem;
+            left: 2.13333333rem;
+            background-image: url('http://b0.hucdn.com/party/default/upload_82522fb600c0b4d77392ea264979cc06_173x120.png');
+        }
+        .act38 .bd .group.group1 .emoji {
+            top: 0;
+            left: 0.21333333rem;
+        }
+        .act38 .bd .group.group2 .text {
+            top: -1.06666667rem;
+            left: -0.17066667rem;
+            background-image: url('http://b0.hucdn.com/party/default/upload_c9c6f5080de77c20be16758c8d29f028_173x120.png');
+        }
+        .act38 .bd .group.group2 .emoji {
+            top: 1.17333333rem;
+            left: 1.024rem;
+        }
+        .act38 .bd .group.group3 .text {
+            top: 0.85333333rem;
+            left: 2.88rem;
+            background-image: url('http://b0.hucdn.com/party/default/upload_25fcabee993546efe6308343be47b97b_173x120.png');
+        }
+        .act38 .bd .group.group3 .emoji {
+            top: 0.17066667rem;
+            right: 0.59733333rem;
+        }
+        .act38 .bd .group1 {
+            top: 0.59733333rem;
+            left: 5.01333333rem;
+        }
+        .act38 .bd .group2 {
+            top: 4.736rem;
+            left: 1.77066667rem;
+        }
+        .act38 .bd .group3 {
+            top: 4.736rem;
+            left: 8.23466667rem;
+        }
+        </style>
+</head>
+<body>
+    <div class="act38">
+        <div class="bd">
+            <img class="bd-bg" src="http://b0.hucdn.com/party/default/upload_cdd63a07d47682d561568a3c68274d38_750x576.jpg" alt="">
+            <div class="group group1 J_crash-egg">
+                <div class="tray"></div>
+                <div class="egg"></div>
+                <div class="text"></div>
+                <div class="emoji"></div>
+                <div class="hammer J_hammer"></div>
+            </div>
+            <div class="group group2 J_crash-egg">
+                <div class="tray"></div>
+                <div class="egg"></div>
+                <div class="text"></div>
+                <div class="emoji"></div>
+                <div class="hammer J_hammer"></div>
+            </div>
+            <div class="group group3 J_crash-egg">
+                <div class="tray"></div>
+                <div class="egg"></div>
+                <div class="text"></div>
+                <div class="emoji"></div>
+                <div class="hammer J_hammer"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+    <script>
+        var $eggs = $('.J_crash-egg'),
+            lock = false;
+
+        var gotolottery = function(e) {
+            e.preventDefault();
+            var target = e.target;
+            $eggs.find('.J_hammer').removeClass('hammer_crash');
+            lock = false;
+            if(target !== e.currentTarget){
+                if(e.type === 'webkitAnimationEnd' || e.type === 'animationend') {
+                    //place ajax code
+                    alert('你砸了一次金蛋');
+                }
+            }
+           
+        };
+        $eggs.on('click', function(){
+            var $this = $(this),
+                $hammer = $this.find('.J_hammer');
+            if (!lock) {
+                lock = true;
+                $hammer.addClass('hammer_crash');
+                
+                //动画监听，用jq的on不起作用，奇也怪也。
+                $this[0].addEventListener('webkitAnimationEnd', gotolottery, false);
+                $this[0].addEventListener('animationend', gotolottery, false);
+                
+            }
+    
+        });
+    </script>
+</body>
+</html>

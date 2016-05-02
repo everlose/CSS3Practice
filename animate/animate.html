@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate</title>
+    <link rel="stylesheet" href="./animate.css">
+    <style>
+    .box{
+        margin: 200px auto;
+        text-align:  center;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform-style: preserve-3d;
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    .content {
+        color: #f35626;
+        background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-animation: bounce 1s 5 linear;
+        font-size: 6rem;
+        line-height: 1;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="box animated bounce" id="animate_box">
+        <h1 class="content">Animate.css</h1>
+    </div>
+    
+    <script>
+
+        var box = document.getElementById('animate_box');
+        var animateStartFn = function (e) {
+            e.preventDefault();
+            var target = e.target;
+            if(target !== e.currentTarget){
+                if(e.type == 'webkitAnimationStart') {
+                    console.log('start');
+                }
+            }
+        };
+        var animateIterationFn = function (e) {
+            console.log('iteration');
+        };
+        var animateEndFn = function (e) {
+            e.preventDefault();
+            var target = e.target;
+            if(target !== e.currentTarget){
+                if(e.type == 'webkitAnimationEnd') {
+                    console.log('end');
+                }
+            }
+           
+        };
+        box.addEventListener('webkitAnimationEnd', animateEndFn, false);
+        box.addEventListener('webkitAnimationStart', animateStartFn, false);
+        box.addEventListener('webkitAnimationIteration', animateIterationFn, false);
+    </script>
+</body>
+</html>
