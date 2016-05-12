@@ -38,19 +38,19 @@
             transform-style: preserve-3d;
         }
 
-            .cube div {
-                position: absolute;
-                padding: 10px;
-                box-sizing: border-box;
-                height: 100%;
-                width: 100%;
-                opacity: 0.9;
-                background-color: #000;
-                border: solid 1px #eee;
-                color: #fff;
-                font: 10px arial;
-                transition: transform 0.2s ease-in;
-            }
+        .cube div {
+            position: absolute;
+            padding: 10px;
+            box-sizing: border-box;
+            height: 100%;
+            width: 100%;
+            opacity: 0.9;
+            background-color: #000;
+            border: solid 1px #eee;
+            color: #fff;
+            font: 10px arial;
+            transition: transform 0.2s ease-in;
+        }
 
         .front {
             background: url(img/1.jpg);
@@ -87,36 +87,36 @@
         }
         /* inner cube */
         i{
-          position:absolute;
-          top:50px;
-          left:50px;
-          width:100px;
-          height:100px;
-          display:block;
-          background:url(img/cube.png);
-          transition: all 1s linear;
+            position:absolute;
+            top:50px;
+            left:50px;
+            width:100px;
+            height:100px;
+            display:block;
+            background:url(img/cube.png);
+            transition: all 1s linear;
         }
         i.i_front{
-          transform: translateZ(50px);
+            transform: translateZ(50px);
         }
         i.i_back{
-          transform: translateZ(-50px) rotateY(180deg);
+            transform: translateZ(-50px) rotateY(180deg);
         }
         i.i_bottom{
-          transform:rotateX(-90deg) translateY(50px);
-          transform-origin: left bottom;
+            transform:rotateX(-90deg) translateY(50px);
+            transform-origin: left bottom;
         }
         i.i_left{
-          transform:rotateY(270deg) translateX(-50px);
-          transform-origin: center left;
+            transform:rotateY(270deg) translateX(-50px);
+            transform-origin: center left;
         }
         i.i_right{
-          transform:rotateY(-270deg) translateX(50px);
-          transform-origin: top right;
+            transform:rotateY(-270deg) translateX(50px);
+            transform-origin: top right;
         }
         i.i_top{
-          transform:rotateX(-270deg) translateY(-50px);
-          transform-origin: left top;
+            transform:rotateX(-270deg) translateY(-50px);
+            transform-origin: left top;
         }
 
         @keyframes rotate {
