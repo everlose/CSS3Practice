@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>玩转地球</title>
+	<style>
+	body {
+		background-color: #010101;
+	}
+	.world_map {
+		position: relative;
+		width: 300px;
+		height: 300px;
+		overflow: hidden;
+		margin: 20px auto 0;
+		background: radial-gradient(at top left, #1053A0 0%, #142a4a 100%);
+		border-radius: 50%;
+		-webkit-transform: translate(0, 0);
+				transform: translate(0, 0);
+	}
+	.world_map::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 300px;
+		height: 300px;
+		/*x-offset, y-offset, 阴影模糊半径, 阴影颜色，投影方式*/
+		/*x-offset, 为负则生成左侧阴影，y-offset为负责生成上面阴影，多个阴影可以叠加*/
+		box-shadow: -2px 8px 43px rgba(0, 0, 0, .4) inset,
+					9px -2px 76px rgba(0, 0, 0, .5) inset,
+					1px 0px 16px rgba(100, 100, 100, .1) inset,
+					116px -2px 240px rgba(0, 0, 0, .5) inset;
+		border-radius: 50%;
+		z-index: 5;
+	}
+
+	@-webkit-keyframes turn {
+		0 {
+			-webkit-transform: translate(-176%, 0);
+					transform: translate(-176%, 0);
+		}
+		100% {
+			-webkit-transform: translate(0, 0);
+					transform: translate(0, 0);
+		}
+	}
+	.world_map .world {
+		-webkit-transform: translate(-176%, 0);
+				transform: translate(-176%, 0);
+		-webkit-animation: turn 10s infinite linear;
+				animation: turn 10s infinite linear;
+	}
+	</style>
+</head>
+<body>
+	<div class="world_map">
+		<div class="world">
+			<img src="./img/world_map.webp" alt="">
+		</div>
+	</div>
+</body>
+</html>
